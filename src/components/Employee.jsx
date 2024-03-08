@@ -23,12 +23,12 @@ const Employee = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
+        dispatch(removeEmployee(id));
         Swal.fire({
           title: "Deleted!",
           text: "Your file has been deleted.",
           icon: "success",
         });
-        dispatch(removeEmployee(id));
       }
     });
   };
