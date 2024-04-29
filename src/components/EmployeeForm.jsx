@@ -61,13 +61,16 @@ const EmployeeForm = ({ mode }) => {
                 })}
               />
               {errors.name && (
-                <Form.Text className="text-danger">{errors.name.message}</Form.Text>
+                <Form.Text className="text-danger">
+                  {errors.name.message}
+                </Form.Text>
               )}
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Birth Date</Form.Label>
               <Form.Control
                 type="date"
+                max={new Date()?.toISOString()?.slice(0, 10)}
                 {...register("birthDate", { required: true })}
               />
               {errors.birthDate && (
